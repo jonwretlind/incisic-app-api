@@ -1,9 +1,11 @@
 
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const pug = require('pug')
 const bodyParser = require('body-parser')
 const view_path = './views'// the "theme" path
+app.use(cors());
 
 function initUser (app) {
   app.use(bodyParser.urlencoded({ extended: true }));
