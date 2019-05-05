@@ -5,9 +5,19 @@ const app = express()
 const pug = require('pug')
 const bodyParser = require('body-parser')
 const view_path = './views'// the "theme" path
-app.use(cors());
 
 function initUser (app) {
+  var whitelist = ['http://18.191.115.47:5000']
+  var corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
+  }
+
   app.use(bodyParser.urlencoded({ extended: true }));
   app.set('views', view_path )
   app.set('view engine', 'pug')
@@ -17,11 +27,11 @@ function initUser (app) {
     res.render('ror-calc-results')
   })
 
-  app.get('/all', function(req, res) {
+  app.get('/all', cors(), function(req, res) {
     res.send(JSON.stringify(DATAFILE));
   })
 
-  app.get('/data/:idx/:key', function(req, res) {
+  app.get('/data/:idx/:key', cors(), function(req, res) {
     var idx = req.params['idx'];
     var key = req.params['key'];
     res.send(JSON.stringify(DATAFILE[idx][key]));
