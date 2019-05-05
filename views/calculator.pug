@@ -1,0 +1,21 @@
+div(id="CalcWrapper")
+  div(id="WM_Calc" ng-controller="CSController")
+    div(id="calcDash" class="app-bg")
+      div(class="dash shadow")
+        h3(id="mainHead" class="calc-head main-head") {{ dashName }}
+          div(id="userProfile")
+        div(class="dash-btns")
+          button(id="btn1" class="button shadow")
+            div(class="btn-label") {{ calc1_Name }}
+          button(id="btn2" class="button shadow")
+            div(class="btn-label") {{ calc2_Name }}
+      div(id="DashAppWindow")
+        div(id="RORCalcWindow")
+          include ror-form.pug
+        div(id="FVCalcWidow")
+          include simpleFV-form.pug
+    
+    include resultsWindow.pug
+    include loader.pug
+
+    

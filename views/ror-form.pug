@@ -1,0 +1,58 @@
+div(id="RORCalc" ng-controller="RORCalcController")
+  div(class="mobile-nav center")
+    span &#8635; Recalculate
+  div(class="calbody collapse shadow")
+    form(name="calculator" ng-submit="func()")
+      h2(class="calc-head") {{calcName}}
+      div(id="warning")
+      
+      div(class="container")
+        div(class="grp1")
+          div(id="input1")
+            label Present Value
+            input(id="presentValue" type="text" name="present_value" ng-model="BOY" autocomplete="off")
+            
+          div(id="input2")
+            label Annual Payment
+            input(type="text" name="annual_payment" ng-model="annPay" autocomplete="off")
+            
+          div(id="input3")
+            label Management Fee 
+            input(type="text" name="management_fee" ng-model="mngFee" autocomplete="off")
+          
+          div(id="input4")
+            label Starting Year 
+            input(type="text" name="start_year" ng-model="startYear" autocomplete="off")
+          
+          div(id="input5")
+            label Number of Years 
+            input(type="text" name="num_of_years" ng-model="numYears" autocomplete="off")
+            
+        
+        div(class="grp2")
+          h5 PORTFOLIO ALLOCATION
+          div(id="input6")
+            div(id="input6a")
+              input(type="checkbox" id="stocksPortfolio" name="stocks" value="stocks" checked)
+              label(for="stocksPortfolio") Stock Market (S&amp;P 500)
+            div(id="input6acol2")
+              label(class="percent") %
+              input(type="text" name="percentStocks" ng-model="percentStocks" autocomplete="off")
+          
+            div(id="input6b")
+              input(type="checkbox" id="bondsPortfolio" name="bonds" value="bonds")
+              label(for="bondsPortfolio") Corporate Bonds 
+            div(id="input6bcol2")
+              label(class="percent") %
+              input(type="text" name="percentBonds" ng-model="percentBonds" autocomplete="off")
+          
+            div(id="input6c")
+              input(type="checkbox" id="treasPortfolio" name="treasuries" value="treasuries")
+              label(for="treasPortfolio") Government Treasuries
+            div(id="input6ccol2")
+              label(class="percent") %
+              input(type="text" name="percentTreas" ng-model="percentTreas" autocomplete="off")
+              
+      div(class="button-wrap")
+        button(class="button" type="submit" name="calculate" value="Calculate" ng-click="calculateNow()") Calculate!
+        

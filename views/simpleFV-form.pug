@@ -1,0 +1,33 @@
+div(id="FVCalc" ng-controller="FVCalcController")
+  div(class="calbody collapse shadow")
+    form(name="fvcalculator" ng-submit="func()")
+      h2(class="calc-head") {{calcName}}
+      div(id="warning")
+      
+      div(class="container")
+        div(class="grp1")
+          div(id="input1")
+            label Present Value
+            input(id="presentValue" type="text" name="present_value" ng-model="BOY" autocomplete="off")
+            
+          div(id="input2")
+            label Annual Payment
+            input(type="text" name="annual_payment" ng-model="annPay" autocomplete="off")
+            
+          div(id="input3")
+            label Interest Rate
+            input(type="text" name="interest_rate" ng-model="intRate")
+          
+          div(id="input4")
+            label Management Fee
+            input(type="text" name="management_fee" ng-model="mngFee")
+          
+          div(id="input5")
+            label Number of Years 
+            input(type="text" name="num_of_years" ng-model="numYears" autocomplete="off")
+            
+      div(class="button-wrap")
+        button(class="button" type="submit" name="calculate" value="Calculate" ng-click="calculateNow()") Calculate!
+        
+
+            

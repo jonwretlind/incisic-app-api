@@ -1,0 +1,656 @@
+
+	// colors used
+	@blue: 		#09527F;
+	@yellow: 	#fff6ab;
+	@green:		#9FB67E;
+	@ltblue:	#7ea4ba;
+	@gray:		#555;
+	@ltGray:	#aaa;
+
+	#WM_Calc {
+
+			table, th, td {
+					padding: 5px 10px !important;
+					border: none !important;
+			}
+
+			.center { text-align: center; }
+
+			.dash {
+				padding: 60px 20px 20px 20px;
+			}
+
+
+			#dashAppWindow {
+				margin-top: 15px;
+			}
+
+				#RORCalc button,
+				#FVCalc button	{
+					width: 80% !important;
+					height: auto !important;
+					display: inline;
+					margin: 10px;
+					float: none;
+					border-radius: 10px;
+					font-size: .8rem;
+					font-weight: bold;
+					padding: 10px !important;
+				}
+				
+					#RORCalc button:hover,
+					#FVCalc button:hover {
+						margin: 10px !important;
+						border: none;
+					}
+					
+			.dash button {
+				position: inline-block;
+				vertical-align: text-top;
+				width: 10vw;
+				height: 10vw;
+				margin: 10px;
+				padding: 0px;
+				border: none;
+			}
+
+				.dash button[id^="btn"]:hover {
+					background-color:  @yellow  !important;
+					width: 9.7vw;
+					height: 9.7vw;
+					margin-left: calc(10px + 0.3vw);
+					margin-top: calc(10px + 0.3vw);
+				}
+				
+				button[id^="btn"].active {
+					background-color:  @ltblue !important;
+				}
+				
+				button[id^="btn"].active:hover {
+					background-color:  @ltblue !important;
+					width: 10vw;
+					height: 10vw;
+					height: 10vw;
+					margin-left: 10px;
+					margin-top: 10px;
+				}
+
+				button:hover { background-color:  @blue; ; color: white; }
+
+				button:focus { outline: 0 !important; }
+
+
+				.button-wrap {
+					clear: both;
+					width: 100%;
+					position: relative;
+					text-align: center;
+				}
+
+				.btn-label {
+					background-color:  @blue; ;
+					color: white;
+					position: relative;
+					margin-top: 90%;
+				}
+
+			.shadow {  
+				box-shadow: 0px 3px 3px #666;
+			}
+
+			.calbody {
+				background-color: white;
+				border: 1px solid silver;
+				min-height: 200px;
+				min-width: 200px;
+				max-width: 100%;
+				width: 100%;
+					position: relative;
+				padding: .5vw;
+			}
+
+			.calculator {
+				position: center;
+			}
+
+			h5.calc-head {
+				display: block;
+				text-align: center;
+				color:  @blue; ;
+				font-size: 1.7em;
+			}
+
+			.main-head {
+				background: @gray;
+				color: white !important;
+				padding: 13px 0px 10px 20px;
+				position: relative;
+				left: 0; top: 0;
+				margin-top: -60px;
+				text-align: left !important;
+				margin-left: -20px;
+			}
+
+			#userProfile {
+				color: white; 
+				float: right; 
+				font-size: .7em;
+				padding-right: 20px;
+				font-weight: 300;
+			}
+
+				#userProfile span {
+					margin-top: 1px;
+				}
+
+			.grp1, .grp2 { 
+				width: 50%;
+				padding: 1vw;
+			}
+				
+			.grp1 {
+				float: left;
+			}
+
+			.grp2 {
+				float: right;
+			}
+
+			label {
+				clear: both;
+				clear: both;
+				display: block;
+				float: left;
+				font-weight: 700;
+				position: relative;
+				z-index: 10;
+			}
+
+			input {
+				display: block;
+				float: right;
+				width: 70%;
+				min-width: 100px;
+				border-radius: 20px;
+				font-size: 1.25em;
+				padding: 5px;
+				margin-bottom: 10px;
+				border-color: silver;
+				outline: none;
+				position: relative;
+				z-index: 10;
+				border: 1px solid @ltGray;
+			}
+				#input6 input {
+							clear: both;
+						float: none;
+						display: inline;
+						width: auto;
+						padding: 0;
+						margin: 0;
+							margin-bottom: -11px;
+						min-width: 10px;
+						vertical-align: text-bottom;
+				}
+				
+				#input6 label {
+							clear: both;
+						float: none;
+						display: inline;
+						width: auto;
+						padding: 0;
+						margin: 0;
+						font-weight: 700;
+						font-size: .9em;
+						padding-top: 5px;
+				}
+				
+				.checkbox {
+					appearance: none;
+					-webkit-appearance: none;
+					background-color: #fafafa;
+					border: 1px solid #cacece;
+					box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+					padding: 13px !important;
+					border-radius: 8px;
+					display: inline-block;
+					position: relative;
+					width: 20px;
+					font-size: .2em;
+					margin-right: 10px !important;
+				}
+				
+					.checkbox:active, checkbox:checked:active {
+						box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+					}
+
+					.checkbox:checked {
+						background-color:  @blue; ;
+						border: 1px solid #fff;
+						box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+						color: #fff;
+					}
+					
+					.checkbox:checked:after {
+						content: '\2713';
+						font-size: 20px;
+						position: absolute;
+						top: 1px;
+						left: 6px;
+						color: #fff;
+					}
+
+			label {
+				display: inline-block;
+				margin-right: 20px;
+				padding-top: 6px;
+			}
+
+			.controls {
+				bottom: 0px;
+			}
+
+			#warning {
+				display: none;
+					background-color:  @yellow; ;
+					border-radius: 5px;
+					padding: 5px;
+					position: relative;
+					left: 0px;
+					z-index: 11;
+					height: 2.5em;
+					box-shadow: 3px 3px 3px #999;
+					margin: 10px auto;
+					top: 0;
+				text-align: center;
+				font-size: .9em; 
+				color: red;
+			}
+
+
+			/* OUTPUT STYLES */
+
+			.nav-tabs .nav-link, 
+			.nav-pills .nav-link {
+					background-color: #ddd;
+					margin-left: 2px;
+			}
+
+				.nav-tabs .nav-link:hover,
+				.nav-pills .nav-link:hover {
+					background-color:  @blue; ;
+					color: white;
+				}
+				
+				.nav-pills .nav-link {
+					margin-bottom: 5px;
+				}
+
+			.caloutputStocks {
+				background-color: #DDD;
+					border-radius: 10px;
+					min-height: 200px;
+					width: 100%;
+					position: relative;
+					top: 0;
+				z-index: 99;
+				padding: 10px;
+				margin-top: 1vw;
+			}
+
+			.calwrapper {
+					width: 100%;
+					position: relative;
+					z-index: 99;
+					padding: 10px 0px;
+					margin-top: 20px;	
+				/*display: none;*/
+			}
+
+			.caloutput .left,
+			.caloutputBonds .left,
+			.caloutputTreas .left,
+			.caloutputIronLaw .left,
+			.caloutputBlackBox .left 		{ text-align: left; }
+			.caloutput .center,
+			.caloutputBonds .center,
+			.caloutputTreas .center,
+			.caloutputIronLaw .center,
+			.caloutputBlackBox .center 	{ text-align: center; }
+			.caloutput .right,
+			.caloutputBonds .right,
+			.caloutputTreas .right,
+			.caloutputIronLaw .right,
+			.caloutputBlackBox .right 		{ text-align: right; }
+			.caloutput .bold,
+			.caloutputBonds .bold,
+			.caloutputTreas .bold,
+			.caloutputIronLaw .bold,
+			.caloutputBlackBox .bold 		{ font-weight: bold; }
+
+			#outputTable {
+				width: 100%;
+			}
+
+			.caloutput td, 
+			.caloutputBonds td, 
+			.caloutputTreas td, 
+			.caloutputIronLaw td, 
+			.caloutputBlackBox td
+			{
+				border-bottom: 1px solid #fff;
+				font-size: 1em;
+				padding: 3px;
+				text-align: center;
+				border-left: 1px solid silver;
+			}
+
+			.caloutput, 
+			.caloutputBonds, 
+			.caloutputTreas, 
+			.caloutputIronLaw, 
+			.caloutputBlackBox {
+				box-shadow: 0px 4px 3px #ccc;
+				border-left: 1px solid silver;
+				border-right: 1px solid silver;
+				border-bottom: 1px solid silver;
+				background-color: white;
+			}
+
+			th {
+				background-color: #333;
+				color: white;
+				font-size: .8em;
+				text-align: center;
+				padding: 5px;
+				border-left: 1px solid silver;
+				
+					-webkit-touch-callout: none;
+					-webkit-user-select: none;
+					-khtml-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+			}
+
+			#outputTable .folding {
+				cursor: pointer;
+			}
+
+				#outputTable th.open > span,
+				#outputTable td.open > span {
+					display: inline-block;
+				}
+				
+				#outputTable th.closed > span,
+				#outputTable td.closed > span {
+					display: none;
+				}
+				
+				div.tri {
+					display: inline-block;
+					padding-right: 3px;
+					font-size: 1.75em;
+					position: relative;
+				}
+				
+				.output-header-data span {
+					display: inline-block;
+					top: -3px;
+					position: relative;
+				}
+				
+				#outputTable th:hover {
+					background-color:  @blue; ;
+					color: white;
+				}
+				
+
+
+			.caloutput tr:nth-child(even), 
+			.caloutputBonds tr:nth-child(even), 
+			.caloutputTreas tr:nth-child(even), 
+			.caloutputIronLaw tr:nth-child(even), 
+			.caloutputBlackBox tr:nth-child(even)
+			{
+				background-color: #f2f2f2;
+			}
+
+			.caloutput #outputTable,
+			.caloutputBonds #outputTableBonds,
+			.caloutputTreas #outputTableTreas,
+			.caloutputIronLaw #outputTableIronLaw,
+			.caloutputBlackBox #outputTableBlackBox
+			{
+				border-radius: 10px 10px 0 0 !important;
+					background-color: white;
+					overflow: hidden;
+			}
+
+			.avgYield, .actYield {
+				display: inline-block;
+				width: 48%;
+				margin: 5px;
+				background-color: white;
+				font-size: 1.1em;
+			}
+
+			.avgYield p, .actYield p {
+				display: block;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+
+			.actYield {
+				background-color:  @yellow; ;
+			}
+
+
+
+					
+			/* ==================================================== 
+				================ POPUP MODAL WINDOW ================
+				==================================================== */
+				
+				/*#resultsWindow {
+					position: absolute;
+					top: 0;
+					height: 100vh;
+					width: 100vw;
+					background-color: rgba(0,0,0,.6);
+				}
+				*/
+				
+				.loader {
+					display: none;
+				}
+				/*
+				.closeBtn {
+					position: absolute;
+					right: 40px;
+					top: 40px;
+					background-color: white;
+					border: 2px solid  @blue; ;
+					border-radius: 20px;
+					min-height: 40px;
+					min-width: 40px;
+				}*/
+				
+
+				div.Loader {
+					display: none;
+				}
+				
+						/* Loader CSS by Luke Haas */
+						.loader,
+						.loader:before,
+						.loader:after {
+							border-radius: 50%;
+							width: 2.5em;
+							height: 2.5em;
+							-webkit-animation-fill-mode: both;
+							animation-fill-mode: both;
+							-webkit-animation: load7 1.8s infinite ease-in-out;
+							animation: load7 1.8s infinite ease-in-out;
+						}
+						.loader {
+							color:  @blue; ;
+							font-size: 10px;
+							margin: 80px auto;
+							position: relative;
+							text-indent: -9999em;
+							-webkit-transform: translateZ(0);
+							-ms-transform: translateZ(0);
+							transform: translateZ(0);
+							-webkit-animation-delay: -0.16s;
+							animation-delay: -0.16s;
+						}
+						.loader:before,
+						.loader:after {
+							content: '';
+							position: absolute;
+							top: 0;
+						}
+						.loader:before {
+							left: -3.5em;
+							-webkit-animation-delay: -0.32s;
+							animation-delay: -0.32s;
+						}
+						.loader:after {
+							left: 3.5em;
+						}
+						@-webkit-keyframes load7 {
+							0%,
+							80%,
+							100% {
+							box-shadow: 0 2.5em 0 -1.3em;
+							}
+							40% {
+							box-shadow: 0 2.5em 0 0;
+							}
+						}
+						@keyframes load7 {
+							0%,
+							80%,
+							100% {
+							box-shadow: 0 2.5em 0 -1.3em;
+							}
+							40% {
+							box-shadow: 0 2.5em 0 0;
+							}
+						}
+
+
+				#calcResults.modal-content {
+					max-height: 90vh;
+					overflow: scroll;
+				}
+				
+				.ann-pay-table {
+					margin: 0px;
+				}
+					
+				.ann-pay-table td {
+					padding: 0px;
+				}
+				
+				.ann-pay-table input {
+					float: none;
+					padding: 0px;
+					margin-bottom: 0px;
+				}
+				
+				.ann-pay-table .roll {
+					color: @gray;
+				}
+				
+				.ann-pay-table .roll:hover {
+					color:  @ltblue; ;
+					cursor: pointer;
+				}
+				
+				.ann-pay-table .recalc-btn, 
+				.ann-pay-table .ann-pay-entry-field
+				{
+					display: none;
+				}
+				
+				
+				.ui-front {
+					z-index: 9999;
+				}
+
+										
+						/* ==================================================== 
+							================= MOBILE STYLES ====================
+							==================================================== */
+							
+							.mobile-nav {
+								display: none;
+								border: 1px solid silver;
+								padding: 5px;
+								width: 100%;
+							}
+							
+						@media screen and ( max-width: 961px ) {
+							
+							.grp1, .grp2 { 
+								width: 100%;
+								padding: 0 1vw;
+								clear: both;
+								}
+
+									
+						}
+
+
+						@media screen and ( max-width: 400px ) {
+							
+								
+							#calcResults .tablewindow {
+								overflow: scroll;
+								width: 100%;
+							}	
+								
+							label {
+								clear: both;
+							}
+							
+							#input6 label {
+								display: block !important;
+								float: right !important;
+								padding: 0 !important;
+								padding-left: 35px !important;
+								margin-top: -23px !important;
+								margin-bottom: 10px !important;
+							}
+							
+							input {
+								clear: both;
+							}
+							
+								#input3 input.text {
+									width: 88% !important;
+
+								}
+							
+								#input6 input.text {
+									width: 80% !important;
+								}
+							
+							.pill-container {
+								display: none;
+							}
+							
+							a.nav-link.active + div.pill-container {
+									display: block;
+							}
+
+									
+						}
+
+
+
+	}
+	
+

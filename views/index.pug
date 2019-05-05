@@ -1,0 +1,16 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title
+  
+    link(rel='stylesheet' href='src/css/normalize.css')
+    link(rel='stylesheet' href='src/css/bootstrap-modal.css')
+    link(rel='stylesheet/less' href='src/less/rorcalc-styles.less')
+    
+  body
+    include calculator.pug
+    
+  footer 
+    script(id="requireJS" type='text/javascript' src='src/js/lib/require.js')
+    script(id="main" type='text/javascript' src='src/js/main.js')
