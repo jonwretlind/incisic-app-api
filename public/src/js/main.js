@@ -28,7 +28,7 @@
 				deps: ['jquery', 'modal', 'angular', 'less', 'initGlobals', 'initNg']
 			},
 			'rorJs': {
-				deps: ['jquery',  'modal', 'angular', 'less', 'initGlobals', 'initNg']
+				deps: ['jquery',  'modal', 'angular', 'less', 'initGlobals', 'initNg', 'mathFuncts']
 			},
 			'mobile_mods': {
 				deps: ['jquery', 'less']
