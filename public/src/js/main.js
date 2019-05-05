@@ -19,6 +19,9 @@
 			mobileMods: 'src/js/app/mobile_mods',
 		},
 		shim: {
+			'modal': {
+				deps: ['jquery']
+			},
 			'initGlobals': {
 				deps: ['jquery',  'modal', 'angular']
 			},
