@@ -2,7 +2,6 @@
  console.log('Load Dependencies...');
 
 	require.config({
-    enforceDefine: true,
     waitSeconds: 0,
 		paths: {
 			jquery: 'src/js/lib/jquery',
