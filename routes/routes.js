@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const view_path = './views'// the "theme" path
 
 function initUser (app) {
-  var whitelist = ['http://18.191.115.47:5000']
+  var whitelist = ['http://18.191.115.47:5000', 'http://localhost:5000']
   var corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
