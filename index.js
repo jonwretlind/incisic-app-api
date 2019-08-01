@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'))
 
 // read in datafile for the application into a global
 console.log("loading JSON datafile...")
-var data = fs.readFileSync(__dirname + '/public/data/rorcalc_schiller.json')
+var data = fs.readFileSync(__dirname + '/public/data/rorcalc_schiller_aug2019.json')
 
 function escapeSpecialChars(data) {
     return data.toString().replace(/\n/g, "\\n")

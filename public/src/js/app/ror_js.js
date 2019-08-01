@@ -19,7 +19,7 @@
 	// +++ Data/Ajax Functions +++ //
 	// +++++++++++++++++++++++++++ //
 	// uses REST API http://localhost:5000/all
-	$.get("http://18.191.115.47:5000/all", function(res) {
+	$.get("http://18.188.124.75:5000/all", function(res) {
 		EconData = JSON.parse(res);
 	});
 
