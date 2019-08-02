@@ -192,7 +192,7 @@
 					// the values placed in table rows
 					// with the changing cell inserted into AnnPayment cell
 					var outputTableRow = "<tr class='output-data-row'><td class='yrs-from-start center'><span>"+yrFromStart+"</span></td><td class='year center'><span>"+ EconData[i].Year +"</span></td><td class='bal-BOY'><span>$"
-					+dispNewBal.toLocaleString()+"</span></td><td class='int-rate'><span style='color: " + rateColor + "'>"+EconData[i][econData]+"%</span></td><td id='AnnPayment-"+i+"'class='ann-pymt center'>" + changingValCell + "</td><td class='mgmt-fee right' style='padding-right: 5%;'><span>$"+ (totMngFee.toFixed(2)).toLocaleString() +"</span></td><td class='output-data data-label-"+i+" bold'><span>/<span></td></tr>"
+					+dispNewBal.toLocaleString()+"</span></td><td class='int-rate'><span style='color: " + rateColor + "'>"+EconData[i][econData].toFixed(2)+"%</span></td><td id='AnnPayment-"+i+"'class='ann-pymt center'>" + changingValCell + "</td><td class='mgmt-fee right' style='padding-right: 5%;'><span>$"+ (totMngFee.toFixed(2)).toLocaleString() +"</span></td><td class='output-data data-label-"+i+" bold'><span>/<span></td></tr>"
 					;
 					$('#'+theTable).append(outputTableRow);
 
