@@ -253,7 +253,7 @@
 				$scope.BOY = 1000;
 				$scope.annPay = 1000;
 				$scope.intRate = 3.00;
-				$scope.mngFee = 0.00;
+				//$scope.mngFee = 0.00;
 				$scope.numYears = 5;
 
 			$scope.calculateNow = function() {
@@ -261,7 +261,7 @@
 				// define variables
 				BOY = Number($scope.BOY);
 				annPay = Number($scope.annPay);
-				mngFee = Number($scope.mngFee / 100);
+				//mngFee = Number($scope.mngFee / 100);
 				numYears = Number($scope.numYears);
 				IR = Number($scope.intRate / 100);
 
