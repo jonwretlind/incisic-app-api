@@ -319,6 +319,7 @@
 				margin-top: 0;
 				&.nav-tabs {
 					border-bottom: 1px solid #eeeeee;
+					margin-bottom: -10px;
 					.nav-link {
 						background-color: @ltGray;
 						padding: 1rem;
@@ -344,7 +345,16 @@
 						margin-bottom: 9px;
 					}
 				}
-			}
+			}//.nav
+
+			.tab-content {
+				.tab-pane {
+					display: none;
+					&.active {
+						display: block;
+					}
+				}
+			}//.tab-content
 
 			.caloutputStocks {
 				background-color: #DDD;
@@ -371,21 +381,25 @@
 			.caloutputBonds .left,
 			.caloutputTreas .left,
 			.caloutputIronLaw .left,
+			.caloutputComp .left,
 			.caloutputBlackBox .left 		{ text-align: left; }
 			.caloutput .center,
 			.caloutputBonds .center,
 			.caloutputTreas .center,
 			.caloutputIronLaw .center,
+			.caloutputComp .center,
 			.caloutputBlackBox .center 	{ text-align: center; }
 			.caloutput .right,
 			.caloutputBonds .right,
 			.caloutputTreas .right,
 			.caloutputIronLaw .right,
+			.caloutputComp .right,
 			.caloutputBlackBox .right 		{ text-align: right; }
 			.caloutput .bold,
 			.caloutputBonds .bold,
 			.caloutputTreas .bold,
 			.caloutputIronLaw .bold,
+			.caloutputComp .bold,
 			.caloutputBlackBox .bold 		{ font-weight: bold; }
 
 			#outputTable {
@@ -410,6 +424,7 @@
 			.caloutputBonds,
 			.caloutputTreas,
 			.caloutputIronLaw,
+			.caloutputComp,
 			.caloutputBlackBox {
 				box-shadow: 0px 4px 3px #ccc;
 				border-left: 1px solid silver;
@@ -471,6 +486,7 @@
 			}
 
 			.caloutput #outputTable,
+			.caloutputComp #compositeView,
 			.caloutputBonds #outputTableBonds,
 			.caloutputTreas #outputTableTreas,
 			.caloutputIronLaw #outputTableIronLaw,

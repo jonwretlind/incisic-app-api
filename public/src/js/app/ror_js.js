@@ -8,6 +8,7 @@
 	var RORTableArray = new Array();
 	const mathfuncts = new MathFuncts();
 	const recalcvalues = new reCalcValues();
+	const dispcomp = new displayComposite();
 	var BOYBalance = new Array();
 	var EOYBalance = new Array();
     var newBalance;
@@ -54,6 +55,7 @@
 				yearIndex = startYear-EconData[0].Year; // calc the table row to begin from
 				endYearIndex = yearIndex+numYears;
 
+				console.log("========= INITIAL DATA ==========");
 				console.log("numYears: " + numYears);
 				console.log("yearIndex: " + yearIndex);
 				console.log("endYearIndex: " + endYearIndex);
@@ -63,20 +65,21 @@
 				console.log("3-Yr Treasuries Return: " + EconData[yearIndex].Treas);
 				console.log("Inlfation CPI-U: " + EconData[yearIndex].CPIU);
 				console.log("GDP: " + EconData[yearIndex].GDP);
+				console.log("=================================");
 
 				constructTabInterface();
 
 				stBOY = BOY; bnBOY = BOY; trBOY = BOY;
 				stAnnPay = annPay; bnAnnPay = annPay; trAnnPay = annPay;
+				BOYArr = new Array();
 
-				for (idx = 0; idx <= 2; idx++) {
+				for (idx = 0; idx <= 3; idx++) {
 
 					switch(idx) {
 						case 0:
 							BOY = stBOY * percentStocks;
 							annPay = stAnnPay * percentStocks;
 							newBalance = BOY;
-
 							if ( checkedStocks && percentStocks > 0 ) constructTable('SandP', idx, BOY, annPay);
 							break;
 
@@ -84,7 +87,6 @@
 							BOY = bnBOY * percentBonds;
 							annPay = bnAnnPay * percentBonds;
 							newBalance = BOY;
-
 							if ( checkedBonds && percentBonds > 0 ) constructTable('Bond', idx, BOY, annPay);
 							break;
 
@@ -92,9 +94,38 @@
 							BOY = trBOY * percentTreas;
 							annPay = trAnnPay * percentTreas;
 							newBalance = BOY;
-							loopFlag = true;
-
 							if ( checkedTreas && percentTreas > 0 ) constructTable('Treas', idx, BOY, annPay);
+							break;
+
+						case 3:
+
+							var numTables = (BOYArr.length / numYears);
+							var col1Total=0, col2Total=0, col3Total=0, totalComp=0;
+							annPay = (stAnnPay * percentStocks) + (bnAnnPay * percentBonds) + (trAnnPay * percentTreas);
+							var sumOfYields = 0;
+							var compBOYBalance = [];
+
+							dispcomp.createCompTable();
+
+							for (i=0; i<numYears; i++) {
+											col1Total = BOYArr[i].eoyBal;
+											if (numTables>= 2) col2Total = BOYArr[i + numYears].eoyBal;
+											if (numTables>= 3) col3Total = BOYArr[i + (numYears*2)].eoyBal;
+											//console.log(col1Total, col2Total, col3Total);
+
+										totalComp = col1Total + col2Total + col3Total;
+										sumOfYields += totalComp;
+										compBOYBalance.push(totalComp);
+
+										console.log("Composite Total " + i + "=" + totalComp.toFixed(2));
+
+										dispcomp.disp(i+1, EconData[yearIndex + i].Year, totalComp);
+								}
+
+								// display avg.
+								dispcomp.avg($, totalComp, numYears, theTable, annPay, compBOYBalance);
+
+							loopFlag = true;
 							break;
 
 						default :
@@ -102,6 +133,7 @@
 					};
 
 					if ( loopFlag ) displayCalc(); // display the calc when done
+
 				};
 
 			};
@@ -114,12 +146,26 @@
 			// Construct Tabbed Interface
 			function constructTabInterface() {
 				$('.calwrapper ul').html('');
-				if (checkedUsePortfolio || (checkedStocks && percentStocks > 0)) { var stocksTab = "<li class='nav-item'><a id='stocksTab' href='#stocks' data-toggle='tab' class='nav-link active'>Stocks</a></li>" } else { var stocksTab = "" };
-				if (checkedUsePortfolio || (checkedBonds && percentBonds > 0)) { var bondsTab = "<li class='nav-item'><a id='bondsTab' href='#bonds' data-toggle='tab' class='nav-link'>Bonds</a></div></li>" } else { var bondsTab = "" };
-				if (checkedUsePortfolio || (checkedTreas && percentTreas > 0)) { var treasTab = "<li class='nav-item'><a id='treasTab'  href='#treas' data-toggle='tab' class='nav-link'>3-Yr. Treasuries</a></li>" } else { var treasTab = "" };
+				if (checkedUsePortfolio || (checkedStocks && percentStocks > 0)) {
+					var stocksTab = "<li class='nav-item'><a id='stocksTab' href='#stocks' data-toggle='tab' class='nav-link active'>Stocks</a></li>";
+					console.log("Construct STOCKS tab...");
+				} else { var stocksTab = "" };
+
+				if (checkedUsePortfolio || (checkedBonds && percentBonds > 0)) {
+						var bondsTab = "<li class='nav-item'><a id='bondsTab' href='#bonds' data-toggle='tab' class='nav-link'>Bonds</a></div></li>";
+						console.log("Construct BONDS tab...");
+				} else { var bondsTab = "" };
+
+				if (checkedUsePortfolio || (checkedTreas && percentTreas > 0)) {
+					var treasTab = "<li class='nav-item'><a id='treasTab'  href='#treas' data-toggle='tab' class='nav-link'>3-Yr. Treasuries</a></li>";
+					console.log("Construct TREASURIES tab...");
+			 	} else { var treasTab = "" };
+				''
+				var CompositeTab = "<li class='nav-item'><a id='compositeTab' href='#comp' data-toggle='tab' class='nav-link'>Average vs. Acutal ROR</a></li>";
+
 				var BBTab = "<li class='nav-item'><a id='blackboxTab' href='#blackbox' data-toggle='tab' class='nav-link'>&quot;Black Box&quot; Planning</a></li>";
 
-				var tabInterface = "<ul class='nav nav-tabs'>" + stocksTab + bondsTab + treasTab + BBTab +"</ul>";
+				var tabInterface = "<ul class='nav nav-tabs'>" + stocksTab + bondsTab + treasTab + CompositeTab + BBTab +"</ul>";
 
 				$('.calwrapper').prepend(tabInterface);
 
@@ -131,14 +177,22 @@
 				case 0:
 					var thePane = '.caloutput';
 					var theTable = 'outputTable';
+					var tableID = 0;
 					break;
 				case 1:
 					var thePane = '.caloutputBonds';
 					var theTable = 'outputTableBonds';
+					var tableID = 1;
 					break;
 				case 2:
 					var thePane = '.caloutputTreas';
 					var theTable = 'outputTableTreas';
+					var tableID = 2;
+					break;
+				case 3:
+					var thePane = '.caloutputComp';
+					var theTable = 'outputTableComp';
+					console.log("== COMPOSTITE TABLE ==");
 					break;
 
 				default :
@@ -157,7 +211,7 @@
 
 				// Build the table of results with a loop
 				for (i = yearIndex; i < endYearIndex; i++){
-					yrFromStart ++ ;
+					yrFromStart ++
 					var dispNewBal = newBalance^0;
 					var dispAnnPay = annPay^0;
 					var idx = yrFromStart - 1;
@@ -170,7 +224,7 @@
 						var rateColor = "red";
 					} else {
 						var rateColor = 'black';
-					};
+					}
 
 					// store values in an array so I can recalculate them
 					console.log("recalcFlag = " + recalcFlag);
@@ -200,11 +254,16 @@
 
 					BOYBalance.push(newBalance); // Build BOY array
 
+					// Let's round down the values
+
 					// calc the EOY Balance
 					mathfuncts.balEOY(newBalance, annPay, mngFee, rate, tyrs);
 					newBalance = mathfuncts.myBalance;
 
 					EOYBalance.push(newBalance); // Build EOY array
+
+					// store values into array for composite calculation
+					BOYArr.push({id:tableID, eoyBal:newBalance});
 
 					dispNewBal = newBalance^0;
 					$('#'+theTable+' .data-label-'+i+' span').html("$" + dispNewBal.toLocaleString());
@@ -219,17 +278,7 @@
 
 				}; // end FOR loop
 
-				// output the Yields
-				$(thePane).prepend(outputYields);
-
-				// get Average Yield
-				mathfuncts.averageYield( $, sumOfYields, numYears, theTable, annPay, BOYBalance );
-
-				// calculate the ACTUAL YIELD here...
-				mathfuncts.actualYield(theTable, idx);
-
-				//clear out the values for the next calculations...
-				mathfuncts.clearValues();
+				avgVsActual(thePane, outputYields, $, sumOfYields, numYears, theTable, annPay, BOYBalance, theTable, idx);
 
 
 				mobileMods($); // JS modifications for small mobile screens
@@ -237,6 +286,22 @@
 
 			}; // end constructTable()
 
+			function avgVsActual(thePane, outputYields, $, sumOfYields, numYears, theTable, annPay, BOYBalance, theTable, idx) {
+
+				console.log("avgVsActual function: ", outputYields, $, sumOfYields, numYears, theTable, annPay, BOYBalance, theTable, idx);
+
+				// output the Yields
+				$(thePane).prepend(outputYields);
+
+				// get Average Yield
+				mathfuncts.averageYield( $, sumOfYields, numYears, theTable, annPay, BOYBalance );
+
+				// calculate the ACTUAL YIELD here...
+			//	mathfuncts.actualYield(theTable, idx);
+
+				//clear out the values for the next calculations...
+				mathfuncts.clearValues();
+			}
 
 
 

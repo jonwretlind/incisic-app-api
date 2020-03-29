@@ -27,6 +27,10 @@ function initUser (app) {
     res.render('ror-calc-results')
   })
 
+  app.get('/simplecalcresults', function(req, res) {
+    res.render('simple-calc-results')
+  })
+
   app.get('/all', cors(), function(req, res) {
     res.send(JSON.stringify(DATAFILE));
   })

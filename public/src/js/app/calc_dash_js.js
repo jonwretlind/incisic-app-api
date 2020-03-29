@@ -4,6 +4,7 @@
 
   let userName = "admin";
   let version = "1.10.0a";
+  const debug = true;
 
    function setCookie(cname, cvalue, exdays) {
 		var d = new Date();

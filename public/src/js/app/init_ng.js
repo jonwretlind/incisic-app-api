@@ -279,7 +279,7 @@
 				$('#WM_Calc .loader').show();
 
 				// start the calculator-
-				var runSrc = 'inc/simple-calc-results.php';
+				var runSrc = 'simplecalcresults';
 				console.log('call loadCalcResults()...');
 				loadCalcResults( runSrc ); //load the calc results HTML
 
