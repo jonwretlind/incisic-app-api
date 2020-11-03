@@ -100,7 +100,7 @@ function FVFuncts() {
 					$('#'+theTable+' .data-label-'+i+' span').html("$" + resultBal.toFixed(0).toLocaleString());
 
 					//display in console
-					console.log(tableArray[0+rowIdx] + "|" + tableArray[1+rowIdx] + "|" + tableArray[2+rowIdx] + "|" + tableArray[3+rowIdx] + "|" + tableArray[4+rowIdx] );
+					console.log(tableArray[0+rowIdx] + "|" + tableArray[1+rowIdx] + "|" + tableArray[2+rowIdx] + "|" + tableArray[3+rowIdx] );
 
 				};
 
@@ -120,7 +120,7 @@ function FVFuncts() {
 					var idArr = id.split("-");
 					console.log('Row: ' + idArr[1]);
 
-					tableArray[3+(5*idArr[1])] = newVal;
+					tableArray[3+(4*idArr[1])] = newVal;
 					fvfuncts.reCalculateFVals(BOY);
 
 				};
