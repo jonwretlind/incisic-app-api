@@ -9,13 +9,23 @@ div(id="CalcWrapper")
             div(class="btn-label") {{ calc1_Name }}
           button(id="btn2" class="button shadow")
             div(class="btn-label") {{ calc2_Name }}
+          button(id="btn3" class="button shadow")
+            div(class="btn-label") {{ calc3_Name }}
+          button(id="btn4" class="button shadow")
+            div(class="btn-label") {{ calc4_Name }}
+          button(id="btn5" class="button shadow")
+            div(class="btn-label") {{ calc5_Name }}
       div(id="DashAppWindow")
         div(id="RORCalcWindow")
           include ror-form.pug
         div(id="FVCalcWidow")
           include simpleFV-form.pug
-    
+        div(id="IntCalcWindow")
+          include intCalc-form.pug
+        div(id="PVCalcWindow")
+          include PVCalc-form.pug
+        div(id="PaymentCalcWindow")
+          include paymentCalc-form.pug
+
     include resultsWindow.pug
     include loader.pug
-
-    

@@ -1,0 +1,26 @@
+div(id="IntCalc" ng-controller="IntCalcController")
+  div(class="calbody collapse shadow")
+    form(name="intcalculator" ng-submit="func()")
+      h2(class="calc-head") {{calcName}}
+      div(id="warning")
+
+      div(class="container")
+        div(class="grp1")
+          div(id="input1")
+            label Present Value
+            input(id="presentValue" type="text" name="present_value" ng-model="Principal" autocomplete="off")
+
+          div(id="input2")
+            label Future Value
+            input(type="text" name="annual_payment" ng-model="PandI" autocomplete="off")
+
+          div(id="input5")
+            label Number of Years
+            input(type="text" name="num_of_years" ng-model="numYears" autocomplete="off")
+
+        div(class="grp2" style="visibility: hidden;")
+            label Resulting Interest Rate
+            p(id="intResult")
+
+      div(class="button-wrap")
+        button(class="button" type="submit" name="calculate" value="Calculate" ng-click="calculateNow()") Calculate!

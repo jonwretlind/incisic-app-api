@@ -72,7 +72,24 @@ $(document).ready(function(){
 				$('#FVCalc .calbody').addClass('active');
 				$('#WM_Calc #btn2').addClass('active');
 				break;
+      case "IntCalc" :
+        // make IntCalc active
+        $('#IntCalc .calbody').addClass('active');
+        $('#WM_Calc #btn3').addClass('active');
+        break;
+      case "PVCalc" :
+        // make PVCalc active
+        $('#PVCalc .calbody').addClass('active');
+        $('#WM_Calc #btn4').addClass('active');
+        break;
+      case "PaymentCalc" :
+        // make PaymentCalc active
+        $('#PaymentCalc .calbody').addClass('active');
+        $('#WM_Calc #btn4').addClass('active');
+        break;
+
 		};
+
 
 		$('#WM_Calc .loader').hide();
 
@@ -104,6 +121,33 @@ $(document).ready(function(){
 		$('#WM_Calc .loader').hide();
 	});
 
+  $('#WM_Calc #btn3').click(function(){
+    clearBtnStates();
+    calcName = "IntCalc";
+    setCookie('activeCalc', calcName, 10);
+    $('#IntCalc .calbody').removeClass('collapse');
+    $('#WM_Calc #btn3').addClass('active');
+    $('#WM_Calc .loader').hide();
+  });
+
+  $('#WM_Calc #btn4').click(function(){
+    clearBtnStates();
+    calcName = "PVCalc";
+    setCookie('activeCalc', calcName, 10);
+    $('#FVCalc .calbody').removeClass('collapse');
+    $('#WM_Calc #btn4').addClass('active');
+    $('#WM_Calc .loader').hide();
+  });
+
+  $('#WM_Calc #btn5').click(function(){
+    clearBtnStates();
+    calcName = "PaymentCalc";
+    setCookie('activeCalc', calcName, 10);
+    $('#PaymentCalc .calbody').removeClass('collapse');
+    $('#WM_Calc #btn5').addClass('active');
+    $('#WM_Calc .loader').hide();
+  });
+
 	//header graphics
 	$('#WM_Calc #calcDash.app-bg').css({
 				background: "#9FB67E url('assets/img/asset_money_bg.png') left top",
@@ -119,6 +163,21 @@ $(document).ready(function(){
 				background: "#fff url('assets/img/asset_FutureValue.svg') center -8px no-repeat",
 				backgroundSize: "cover"
 	});
+
+  $('#WM_Calc #btn3').css({
+        background: "#fff url('assets/img/asset_FutureValue.svg') center -8px no-repeat",
+        backgroundSize: "cover"
+  });
+
+  $('#WM_Calc #btn4').css({
+        background: "#fff url('assets/img/asset_FutureValue.svg') center -8px no-repeat",
+        backgroundSize: "cover"
+  });
+
+  $('#WM_Calc #btn5').css({
+        background: "#fff url('assets/img/asset_FutureValue.svg') center -8px no-repeat",
+        backgroundSize: "cover"
+  });
 
 
 

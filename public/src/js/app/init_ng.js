@@ -11,6 +11,11 @@
 				$scope.dashName = "Incisic Calculator Suite";
 				$scope.calc1_Name = "Average vs. Actual ROR";
 				$scope.calc2_Name = "Future Value Calculator";
+				$scope.calc3_Name = "Interest Rate Calculator";
+				$scope.calc4_Name = "Present Value Calculator";
+				$scope.calc5_Name = "Payment Calculator";
+
+
 
 
 			$scope.goCalc = function() {
@@ -245,7 +250,7 @@
 
 		// ============= SimpleFVApp Controller =======================
 
-		// ROR Calculator Controller
+		// SimpleFVApp Calculator Controller
 		CalcSuiteApp.controller('FVCalcController', ['$scope', function($scope){
 
 				// form element definitions here...
@@ -309,6 +314,95 @@
 
 		}]); // end function($scope) in SimpleFVAppController
 
+
+
+		// ============= IntCalcApp Controller =======================
+		// IntCalcApp Calculator Controller
+		CalcSuiteApp.controller('IntCalcController', ['$scope', function($scope){
+
+				// form element definitions here...
+				// Where: IntRate = (PandI/Principal)**(1/numYears) - 1
+
+				$scope.calcName = "Interest Rate Calculator, Compounded Annually";
+				$scope.Principal = 1000;
+				$scope.PandI = 5000;
+				$scope.numYears = 15;
+
+			$scope.calculateNow = function() {
+
+				console.log('calculate Simple Interest Rate');
+
+				// define variables
+				Principal = Number($scope.Principal);
+				PandI = Number($scope.PandI);
+				numYears = Number($scope.numYears);
+
+				// check if form entries are valid
+				//valid = true;
+				//validate($scope, "IntCalcApp");
+
+				// DO THE CALCULATIONS
+				function calcInt(Principal, PandI, numYears) {
+					let intRate = ((PandI/Principal)**(1/numYears) - 1) * 100;
+					return intRate.toFixed(2);
+				};
+
+				$('#intResult').text(calcInt(Principal, PandI, numYears));
+				$('#IntCalc .grp2').css("visibility", "visible");
+
+			};
+
+			$scope.update = function() {
+				//nothing
+			};
+
+
+		}]); // end function($scope) in IntCalcController
+
+
+
+				// ============= PaymentCalcApp Controller =======================
+				// PaymentCalcApp Calculator Controller
+				CalcSuiteApp.controller('paymentCalcController', ['$scope', function($scope){
+
+						// form element definitions here...
+						// Where: IntRate = (PandI/Principal)**(1/numYears) - 1
+
+						$scope.calcName = "Payment Calculator, Compounded Annually";
+						$scope.Principal = 1000;
+						$scope.PandI = 5000;
+						$scope.numYears = 15;
+
+					$scope.calculateNow = function() {
+
+						console.log('calculate Payment');
+
+						// define variables
+						Principal = Number($scope.Principal);
+						PandI = Number($scope.PandI);
+						numYears = Number($scope.numYears);
+
+						// check if form entries are valid
+						//valid = true;
+						//validate($scope, "IntCalcApp");
+
+						// DO THE CALCULATIONS
+						function calcInt(Principal, PandI, numYears) {
+							let intRate = ((PandI/Principal)**(1/numYears) - 1) * 100;
+							return intRate.toFixed(2);
+						};
+
+						$('#paymentResult').text(calcInt(Principal, PandI, numYears));
+						$('#PaymentCalc .grp2').css("visibility", "visible");
+
+					};
+
+					$scope.update = function() {
+						//nothing
+					};
+
+
+				}]); // end function($scope) in PaymentCalcController
 
 
 
